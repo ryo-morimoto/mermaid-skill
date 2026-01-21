@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "bun build node_modules/mermaid-ast/dist/index.js --outfile=plugins/mermaid-validator/dist/mermaid-ast.mjs --target=node --minify",
-    "test": "bash test/run.sh"
+    "test": "bash plugins/mermaid-validator/scripts/validate.test.sh"
   },
   "devDependencies": {
     "mermaid-ast": "^0.8.2"
