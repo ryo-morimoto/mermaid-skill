@@ -78,13 +78,13 @@ This Mermaid diagram isn't rendering - can you fix it?
 
 ```bash
 # Install dependencies
-npm install
+bun install
 
 # Build mermaid-ast bundle
-npm run build
+bun run build
 
 # Run tests
-npm test
+bun run test
 ```
 
 ## License
