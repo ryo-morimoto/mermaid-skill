@@ -20,9 +20,10 @@ Validate the provided Mermaid diagram using mermaid-cli.
 1. If `$ARGUMENTS` is a file path, read the file content
 2. If `$ARGUMENTS` is diagram code or empty, ask user for diagram code
 3. Write diagram to `/tmp/diagram.mmd`
-4. Run validation: `npx -p @mermaid-js/mermaid-cli mmdc -i /tmp/diagram.mmd -o /tmp/diagram.svg 2>&1`
-5. Report result with status (success/error) and any fix suggestions
-6. Cleanup temp files
+4. Run validation: `npx -p @mermaid-js/mermaid-cli mmdc -i /tmp/diagram.mmd -o - > /dev/null 2>&1 && echo "✅ Valid" || echo "❌ Invalid"`
+5. If invalid, run again to get error: `npx -p @mermaid-js/mermaid-cli mmdc -i /tmp/diagram.mmd -o - 2>&1`
+6. Report result with fix suggestions
+7. Cleanup: `rm -f /tmp/diagram.mmd`
 
 ## Common Errors
 
