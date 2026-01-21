@@ -134,17 +134,22 @@ erDiagram
 
 ## Output Format
 
+### Success
 ```
-## Mermaid Validation Result
-
-**Status**: ✅ Valid - flowchart / ❌ Invalid
-
-### Diagram Code
-\`\`\`mermaid
-[validated code]
-\`\`\`
-
-### Error Details (if applicable)
-- Error: [message]
-- Fix: [suggestion]
+✅ Valid - flowchart
 ```
+
+### Error
+```
+❌ Invalid
+Failed to parse flowchart: Parse error on line 2:
+flowchart TD    A -> B
+------------------^
+Expecting 'SEMI', 'NEWLINE', 'EOF', 'AMP', 'START_LINK', 'LINK', 'LINK_ID', got 'MINUS'
+```
+
+The error shows:
+- Diagram type that failed
+- Line number
+- Visual pointer to error location
+- Expected vs actual tokens
