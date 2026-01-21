@@ -1,54 +1,38 @@
 # Mermaid Validator Plugin
 
-A Claude Code plugin for creating and validating Mermaid diagrams using the official mermaid-cli (mmdc) tool.
+A Claude Code plugin for validating Mermaid diagram syntax using mermaid-ast (pure static analysis, no browser required).
 
 ## Features
 
-- Create syntactically correct Mermaid diagrams
-- Validate diagrams using official mermaid-cli
-- Fix common syntax errors
-- Support for all major diagram types
+- Validate Mermaid diagram syntax
+- Pure static analysis (no browser/Puppeteer)
+- Fast validation with detailed error messages
+- Support for all 18 diagram types
 
 ## Plugin Structure
 
 ```
 mermaid-skill/
-├── .claude-plugin/
-│   └── marketplace.json       # Marketplace catalog
+├── package.json                    # Build & test scripts
+├── test/validate.test.sh           # Tests (excluded from distribution)
 └── plugins/
+    ├── dist/mermaid-ast.mjs        # Shared build artifact
     └── mermaid-validator/
-        ├── .claude-plugin/
-        │   └── plugin.json    # Plugin manifest
-        └── skills/
-            └── mermaid-validator/
-                ├── SKILL.md
-                └── references/
-                    └── REFERENCE.md
+        ├── dist -> ../dist         # Symlink (resolved on install)
+        ├── scripts/validate.sh     # Validation script
+        ├── commands/               # Slash commands
+        ├── skills/                 # Skill definitions
+        └── .claude-plugin/
+            └── plugin.json
 ```
 
 ## Supported Diagram Types
 
-| Type | Keyword | Use Case |
-|------|---------|----------|
-| Flowchart | `flowchart TD` | Process flows, decision trees |
-| Sequence | `sequenceDiagram` | API interactions, message flows |
-| Class | `classDiagram` | OOP structures, relationships |
-| State | `stateDiagram-v2` | State machines, transitions |
-| ER | `erDiagram` | Database schemas |
-| Gantt | `gantt` | Project schedules |
-| Pie | `pie` | Data distribution |
+flowchart, sequence, class, state, erDiagram, gantt, gitGraph, mindmap, journey, kanban, pie, timeline, sankey, quadrant, requirement, xychart, c4, block
 
 ## Prerequisites
 
-Node.js and npm are required for mermaid-cli:
-
-```bash
-# Use npx (no install needed)
-npx -p @mermaid-js/mermaid-cli mmdc --version
-
-# Or install globally
-npm install -g @mermaid-js/mermaid-cli
-```
+Node.js is required to run the validation script.
 
 ## Installation
 
@@ -67,6 +51,12 @@ The skill activates automatically when:
 - Debugging rendering issues
 - Documenting system architecture with diagrams
 
+### Slash Command
+
+```
+/mermaid-validator <diagram or file path>
+```
+
 ### Example Prompts
 
 ```
@@ -77,16 +67,25 @@ Create a flowchart for user authentication
 This Mermaid diagram isn't rendering - can you fix it?
 ```
 
-```
-Create a sequence diagram showing the API flow between client and server
-```
-
 ## Validation Process
 
-1. Write Mermaid code to a temp file (`/tmp/diagram.mmd`)
-2. Run `mmdc` to validate syntax
+1. Write Mermaid code to a temp file
+2. Run `validate.sh` (uses mermaid-ast for static analysis)
 3. Report success or identify errors with fix suggestions
 4. Clean up temp files
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Build mermaid-ast bundle
+npm run build
+
+# Run tests
+npm test
+```
 
 ## License
 
