@@ -1,69 +1,33 @@
 ---
 description: Validate Mermaid diagram syntax using official mermaid-cli
-argument-hint: [diagram-code or file-path]
-allowed-tools: [Bash, Read, Write]
+allowed-tools:
+  - Bash(npx:*)
+  - Bash(cat:*)
+  - Bash(rm:*)
+  - Read
+  - Write
 ---
 
-# Mermaid Validator Command
+## Context
 
-Validate Mermaid diagram syntax using the official mermaid-cli (mmdc).
+- mmdc version: !`npx -p @mermaid-js/mermaid-cli mmdc --version 2>&1 | head -1`
+- User argument: $ARGUMENTS
 
-## Arguments
+## Task
 
-$ARGUMENTS
+Validate the provided Mermaid diagram using mermaid-cli.
 
-## Instructions
+1. If `$ARGUMENTS` is a file path, read the file content
+2. If `$ARGUMENTS` is diagram code or empty, ask user for diagram code
+3. Write diagram to `/tmp/diagram.mmd`
+4. Run validation: `npx -p @mermaid-js/mermaid-cli mmdc -i /tmp/diagram.mmd -o /tmp/diagram.svg 2>&1`
+5. Report result with status (success/error) and any fix suggestions
+6. Cleanup temp files
 
-1. **Check if mmdc is available**:
-   ```bash
-   npx -p @mermaid-js/mermaid-cli mmdc --version
-   ```
-
-2. **Get diagram code**:
-   - If argument is a file path, read the file
-   - If argument is diagram code, use it directly
-   - If no argument, ask user to provide diagram code
-
-3. **Write to temp file and validate**:
-   ```bash
-   cat << 'EOF' > /tmp/diagram.mmd
-   [diagram code here]
-   EOF
-   npx -p @mermaid-js/mermaid-cli mmdc -i /tmp/diagram.mmd -o /tmp/diagram.svg 2>&1
-   ```
-
-4. **Report result**:
-   - Success: Show validated diagram code
-   - Error: Show error details and suggest fixes
-
-5. **Cleanup**:
-   ```bash
-   rm -f /tmp/diagram.mmd /tmp/diagram.svg
-   ```
-
-## Output Format
-
-```
-## Mermaid Validation Result
-
-**Status**: ✅ Success / ❌ Error
-
-### Diagram Code
-\`\`\`mermaid
-[validated code]
-\`\`\`
-
-### Error Details (if applicable)
-- Line: X
-- Error: [message]
-- Fix: [suggestion]
-```
-
-## Common Fixes
+## Common Errors
 
 | Error | Fix |
 |-------|-----|
 | Arrow syntax | Use `-->` not `->` in flowcharts |
 | Special chars | Wrap in quotes: `A["Value: 100"]` |
 | Missing end | Add `end` after subgraph/loop blocks |
-| Unknown type | Check keyword: `flowchart`, `sequenceDiagram`, `classDiagram` |
