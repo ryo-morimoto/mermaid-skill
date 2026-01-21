@@ -1,7 +1,7 @@
 {
   "name": "mermaid-validator",
   "version": "1.0.1",
-  "description": "Mermaid diagram creation and validation using official mermaid-cli (mmdc)",
+  "description": "Mermaid diagram syntax validation using mermaid-ast (pure static analysis, no browser)",
   "author": {
     "name": "ryo-morimoto"
   },
