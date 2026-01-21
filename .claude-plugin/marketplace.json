@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ryo-morimoto-mermaid-skill",
+  "version": "1.0.0",
+  "description": "Mermaid diagram creation and validation plugin",
+  "owner": {
+    "name": "ryo-morimoto"
+  },
+  "plugins": [
+    {
+      "name": "mermaid-validator",
+      "source": "./",
+      "description": "Create and validate Mermaid diagrams using the official mermaid-cli (mmdc) tool",
+      "version": "1.0.0",
+      "author": {
+        "name": "ryo-morimoto"
+      },
+      "repository": "https://github.com/ryo-morimoto/mermaid-skill",
+      "license": "MIT",
+      "keywords": ["mermaid", "diagram", "flowchart", "sequence", "validation"]
+    }
+  ]
+}
