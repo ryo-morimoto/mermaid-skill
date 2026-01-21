@@ -1,6 +1,6 @@
 {
   "name": "mermaid-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Mermaid diagram syntax validation using mermaid-ast (pure static analysis, no browser)",
   "author": {
     "name": "ryo-morimoto"
