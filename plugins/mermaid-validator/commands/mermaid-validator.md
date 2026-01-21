@@ -8,6 +8,14 @@ allowed-tools:
   - Write
 ---
 
+<!--
+TODO: 現在の実装はmmdc経由でSVG生成を行い、その成否で構文検証している。
+      内部でブラウザ(Puppeteer)を起動するため低速。
+      ユーザー環境を汚さずに静的解析のみで検証できる手段があれば置き換えたい。
+      候補: mermaid-check (Go) - バイナリ同梱が必要
+            @mermaid-js/parser - flowchart/sequence未サポート (2025年時点)
+-->
+
 ## Context
 
 - mmdc version: !`npx -p @mermaid-js/mermaid-cli mmdc --version 2>&1 | head -1`
