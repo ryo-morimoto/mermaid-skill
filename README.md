@@ -84,7 +84,7 @@ bun install
 bun run build
 
 # Run tests
-bun run test
+bun test
 ```
 
 ## License

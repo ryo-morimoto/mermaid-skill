@@ -3,10 +3,10 @@
   "version": "1.0.1",
   "private": true,
   "scripts": {
-    "build": "bun build node_modules/mermaid-ast/dist/index.js --outfile=plugins/dist/mermaid-ast.mjs --target=node --minify",
-    "test": "bash test/validate.test.sh"
+    "build": "bun build node_modules/mermaid-ast/dist/index.js --outfile=plugins/dist/mermaid-ast.mjs --target=node --minify"
   },
   "devDependencies": {
+    "@types/bun": "^1.2.9",
     "mermaid-ast": "^0.8.2"
   }
 }
