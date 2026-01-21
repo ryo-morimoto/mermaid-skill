@@ -1,10 +1,12 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "ryo-morimoto-mermaid-skill",
-  "version": "1.0.0",
-  "description": "Mermaid diagram creation and validation plugin",
   "owner": {
     "name": "ryo-morimoto"
+  },
+  "metadata": {
+    "description": "Mermaid diagram creation and validation plugin",
+    "version": "1.0.0"
   },
   "plugins": [
     {
