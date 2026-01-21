@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TODO: This test file is placed outside plugins/ to exclude from plugin distribution.
+# Claude Code copies entire plugin directory to cache, so test files must be external.
+
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 VALIDATOR="$SCRIPT_DIR/../plugins/mermaid-validator/scripts/validate.sh"
 
