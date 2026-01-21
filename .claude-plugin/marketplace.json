@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "mermaid-validator",
-      "source": "./",
+      "source": "./plugins/mermaid-validator",
       "description": "Create and validate Mermaid diagrams using the official mermaid-cli (mmdc) tool",
       "version": "1.0.0",
       "author": {

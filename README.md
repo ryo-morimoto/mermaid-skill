@@ -14,13 +14,16 @@ A Claude Code plugin for creating and validating Mermaid diagrams using the offi
 ```
 mermaid-skill/
 ├── .claude-plugin/
-│   └── plugin.json
-├── skills/
-│   └── mermaid-validator/
-│       ├── SKILL.md
-│       └── references/
-│           └── REFERENCE.md
-└── README.md
+│   └── marketplace.json       # Marketplace catalog
+└── plugins/
+    └── mermaid-validator/
+        ├── .claude-plugin/
+        │   └── plugin.json    # Plugin manifest
+        └── skills/
+            └── mermaid-validator/
+                ├── SKILL.md
+                └── references/
+                    └── REFERENCE.md
 ```
 
 ## Supported Diagram Types
@@ -49,10 +52,11 @@ npm install -g @mermaid-js/mermaid-cli
 
 ## Installation
 
-Add this plugin to Claude Code:
+Add this marketplace and install the plugin:
 
 ```bash
-claude plugins install /path/to/mermaid-skill
+/plugin marketplace add ryo-morimoto/mermaid-skill
+/plugin install mermaid-validator@ryo-morimoto-mermaid-skill
 ```
 
 ## Usage
