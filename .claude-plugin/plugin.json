@@ -1,0 +1,9 @@
+{
+  "name": "mermaid-validator",
+  "version": "1.0.0",
+  "description": "Mermaid diagram creation and validation using official mermaid-cli (mmdc)",
+  "author": {
+    "name": "ryo-morimoto"
+  },
+  "keywords": ["mermaid", "diagram", "flowchart", "sequence", "validation"]
+}
