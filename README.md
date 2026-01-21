@@ -14,8 +14,9 @@ A Claude Code plugin for validating Mermaid diagram syntax using mermaid-ast (pu
 ```
 mermaid-skill/
 ├── package.json                    # Build & test scripts
-├── src/validate.ts                 # Validator source
-├── test/validate.test.ts           # Tests (excluded from distribution)
+├── src/
+│   ├── validate.ts                 # Validator source
+│   └── validate.test.ts            # Tests
 └── plugins/
     ├── dist/validate.mjs           # Bundled validator (node)
     └── mermaid-validator/

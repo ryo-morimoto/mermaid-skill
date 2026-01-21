@@ -1,7 +1,3 @@
-// TODO: Ideally this should be co-located with validate binary.
-// However, Claude Code plugin system has no file exclusion mechanism (no .pluginignore).
-// Entire plugin directory is copied to cache, so test files must be placed externally.
-
 import { describe, test, expect } from "bun:test";
 import { $ } from "bun";
 
