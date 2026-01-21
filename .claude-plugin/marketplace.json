@@ -13,7 +13,7 @@
       "name": "mermaid-validator",
       "source": "./plugins/mermaid-validator",
       "description": "Validate Mermaid diagram syntax using mermaid-ast (pure static analysis, no browser required)",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "author": {
         "name": "ryo-morimoto"
       },

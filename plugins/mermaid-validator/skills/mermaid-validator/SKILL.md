@@ -1,26 +1,15 @@
 ---
 name: mermaid-validator
-description: Use when creating Mermaid diagrams (flowcharts, sequence, class, state, ER diagrams) or fixing Mermaid syntax errors and rendering issues. Validates diagrams using official mermaid-cli.
+description: Use when creating Mermaid diagrams (flowcharts, sequence, class, state, ER diagrams) or fixing Mermaid syntax errors and rendering issues. Validates diagrams using mermaid-ast (pure static analysis, no browser required).
 ---
 
 # Mermaid Validator
 
-Create syntactically correct Mermaid diagrams and validate them using the official mermaid-cli.
+Validate Mermaid diagram syntax using mermaid-ast (pure static analysis, no browser required).
 
 ## Validation Process
 
-### Step 1: Check mmdc Installation
-
-```bash
-npx -p @mermaid-js/mermaid-cli mmdc --version
-```
-
-If not available, guide user to install:
-```bash
-npm install -g @mermaid-js/mermaid-cli
-```
-
-### Step 2: Write Diagram to Temp File
+### Step 1: Write Diagram to Temp File
 
 ```bash
 cat << 'EOF' > /tmp/diagram.mmd
@@ -30,16 +19,22 @@ flowchart TD
 EOF
 ```
 
-### Step 3: Validate with mmdc
+### Step 2: Validate with mermaid-ast
 
 ```bash
-npx -p @mermaid-js/mermaid-cli mmdc -i /tmp/diagram.mmd -o /tmp/diagram.svg 2>&1
+bash ${CLAUDE_PLUGIN_ROOT}/scripts/validate.sh /tmp/diagram.mmd
 ```
 
-- **Success**: SVG file generated
-- **Failure**: Parse error message identifies the issue
+Or validate via stdin:
+```bash
+echo 'flowchart TD
+    A --> B' | bash ${CLAUDE_PLUGIN_ROOT}/scripts/validate.sh
+```
 
-### Step 4: Fix Errors
+- **Success**: `✅ Valid - [diagram type]`
+- **Failure**: `❌ Invalid` with error message
+
+### Step 3: Fix Errors
 
 Common issues to check:
 - Arrow syntax (`-->` not `->` in flowcharts)
@@ -47,10 +42,10 @@ Common issues to check:
 - Missing `end` keywords for blocks
 - Keyword spelling (e.g., `sequenceDiagram` not `sequence`)
 
-### Step 5: Cleanup
+### Step 4: Cleanup
 
 ```bash
-rm -f /tmp/diagram.mmd /tmp/diagram.svg
+rm -f /tmp/diagram.mmd
 ```
 
 ## Supported Diagram Types
@@ -64,6 +59,9 @@ rm -f /tmp/diagram.mmd /tmp/diagram.svg
 | ER | `erDiagram` | Database schemas |
 | Gantt | `gantt` | Project schedules |
 | Pie | `pie` | Data distribution |
+| Mindmap | `mindmap` | Hierarchical ideas |
+| Timeline | `timeline` | Chronological events |
+| Git Graph | `gitGraph` | Git branch visualization |
 
 See [references/REFERENCE.md](references/REFERENCE.md) for detailed syntax of each diagram type.
 
@@ -132,26 +130,21 @@ erDiagram
 
 ### Unknown diagram type
 - Use exact keywords: `flowchart`, `sequenceDiagram`, `classDiagram`
+- Supported: flowchart, sequence, class, state, erDiagram, gantt, gitGraph, mindmap, journey, kanban, pie, timeline, sankey, quadrant, requirement, xychart, c4, block
 
 ## Output Format
 
 ```
 ## Mermaid Validation Result
 
-**Status**: ✅ Success / ❌ Error
+**Status**: ✅ Valid - flowchart / ❌ Invalid
 
 ### Diagram Code
 \`\`\`mermaid
 [validated code]
 \`\`\`
 
-### Validation Command
-\`\`\`bash
-npx -p @mermaid-js/mermaid-cli mmdc -i /tmp/diagram.mmd -o /tmp/diagram.svg
-\`\`\`
-
 ### Error Details (if applicable)
-- Line: X
 - Error: [message]
 - Fix: [suggestion]
 ```
