@@ -14,12 +14,12 @@ A Claude Code plugin for validating Mermaid diagram syntax using mermaid-ast (pu
 ```
 mermaid-skill/
 ├── package.json                    # Build & test scripts
-├── test/validate.test.sh           # Tests (excluded from distribution)
+├── src/validate.ts                 # Validator source
+├── test/validate.test.ts           # Tests (excluded from distribution)
 └── plugins/
-    ├── dist/mermaid-ast.mjs        # Shared build artifact
+    ├── dist/validate.mjs           # Bundled validator (node)
     └── mermaid-validator/
         ├── dist -> ../dist         # Symlink (resolved on install)
-        ├── scripts/validate.sh     # Validation script
         ├── commands/               # Slash commands
         ├── skills/                 # Skill definitions
         └── .claude-plugin/

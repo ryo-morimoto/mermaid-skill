@@ -9,44 +9,26 @@ Validate Mermaid diagram syntax using mermaid-ast (pure static analysis, no brow
 
 ## Validation Process
 
-### Step 1: Write Diagram to Temp File
-
+### Validate file
 ```bash
-cat << 'EOF' > /tmp/diagram.mmd
-flowchart TD
-    A[Start] --> B[Process]
-    B --> C[End]
-EOF
+node ${CLAUDE_PLUGIN_ROOT}/dist/validate.mjs /path/to/diagram.mmd
 ```
 
-### Step 2: Validate with mermaid-ast
-
-```bash
-bash ${CLAUDE_PLUGIN_ROOT}/scripts/validate.sh /tmp/diagram.mmd
-```
-
-Or validate via stdin:
+### Validate via stdin
 ```bash
 echo 'flowchart TD
-    A --> B' | bash ${CLAUDE_PLUGIN_ROOT}/scripts/validate.sh
+    A --> B' | node ${CLAUDE_PLUGIN_ROOT}/dist/validate.mjs
 ```
 
+### Output
 - **Success**: `✅ Valid - [diagram type]`
 - **Failure**: `❌ Invalid` with error message
 
-### Step 3: Fix Errors
-
-Common issues to check:
+### Common issues
 - Arrow syntax (`-->` not `->` in flowcharts)
 - Special characters in node IDs (wrap in quotes)
 - Missing `end` keywords for blocks
 - Keyword spelling (e.g., `sequenceDiagram` not `sequence`)
-
-### Step 4: Cleanup
-
-```bash
-rm -f /tmp/diagram.mmd
-```
 
 ## Supported Diagram Types
 

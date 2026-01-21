@@ -1,9 +1,7 @@
 ---
 description: Validate Mermaid diagram syntax using mermaid-ast (no browser required)
 allowed-tools:
-  - Bash(bash:*)
-  - Bash(cat:*)
-  - Bash(rm:*)
+  - Bash
   - Read
   - Write
 ---
@@ -16,12 +14,10 @@ allowed-tools:
 
 Validate the provided Mermaid diagram using mermaid-ast (pure static analysis, no browser).
 
-1. If `$ARGUMENTS` is a file path, read the file content
-2. If `$ARGUMENTS` is diagram code or empty, ask user for diagram code
-3. Write diagram to `/tmp/diagram.mmd`
-4. Run validation: `bash ${CLAUDE_PLUGIN_ROOT}/scripts/validate.sh /tmp/diagram.mmd`
-5. Report result with fix suggestions
-6. Cleanup: `rm -f /tmp/diagram.mmd`
+1. If `$ARGUMENTS` is a file path, validate directly: `node ${CLAUDE_PLUGIN_ROOT}/dist/validate.mjs <file>`
+2. If `$ARGUMENTS` is diagram code, pipe to validator: `echo '<code>' | node ${CLAUDE_PLUGIN_ROOT}/dist/validate.mjs`
+3. If empty, ask user for diagram code
+4. Report result with fix suggestions
 
 ## Common Errors
 
