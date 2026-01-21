@@ -19,7 +19,7 @@ Validate the provided Mermaid diagram using mermaid-ast (pure static analysis, n
 1. If `$ARGUMENTS` is a file path, read the file content
 2. If `$ARGUMENTS` is diagram code or empty, ask user for diagram code
 3. Write diagram to `/tmp/diagram.mmd`
-4. Run validation: `bash ${CLAUDE_PLUGIN_ROOT}/skills/mermaid-validator/scripts/validate.sh /tmp/diagram.mmd`
+4. Run validation: `bash ${CLAUDE_PLUGIN_ROOT}/scripts/validate.sh /tmp/diagram.mmd`
 5. Report result with fix suggestions
 6. Cleanup: `rm -f /tmp/diagram.mmd`
 

@@ -8,12 +8,12 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PLUGIN_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 INPUT_FILE="${1:--}"
 
 node --input-type=module -e "
 import { readFileSync } from 'fs';
-import { parse } from '$PLUGIN_ROOT/bin/mermaid-ast.mjs';
+import { parse } from '$PLUGIN_ROOT/dist/mermaid-ast.mjs';
 
 const file = process.argv[1];
 let input;
