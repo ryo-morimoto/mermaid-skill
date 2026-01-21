@@ -9,11 +9,14 @@ allowed-tools:
 ---
 
 <!--
-TODO: 現在の実装はmmdc経由でSVG生成を行い、その成否で構文検証している。
-      内部でブラウザ(Puppeteer)を起動するため低速。
-      ユーザー環境を汚さずに静的解析のみで検証できる手段があれば置き換えたい。
-      候補: mermaid-check (Go) - バイナリ同梱が必要
-            @mermaid-js/parser - flowchart/sequence未サポート (2025年時点)
+TODO: Current implementation validates syntax by generating SVG via mmdc.
+      This is slow because it launches a browser (Puppeteer) internally.
+      Replace with static analysis if a tool becomes available that:
+      - Does not require polluting user environment
+      - Supports all diagram types (flowchart, sequence, class, etc.)
+      Candidates:
+      - mermaid-check (Go): Requires bundling binary
+      - @mermaid-js/parser: flowchart/sequence not supported (as of 2025)
 -->
 
 ## Context
