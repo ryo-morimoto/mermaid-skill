@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-VALIDATOR="$SCRIPT_DIR/validate.sh"
+VALIDATOR="$SCRIPT_DIR/../plugins/mermaid-validator/scripts/validate.sh"
 
 echo "=== File input ==="
 echo 'flowchart TD
