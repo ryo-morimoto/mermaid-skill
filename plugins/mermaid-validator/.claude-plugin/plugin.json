@@ -1,6 +1,6 @@
 {
   "name": "mermaid-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mermaid diagram creation and validation using official mermaid-cli (mmdc)",
   "author": {
     "name": "ryo-morimoto"
@@ -8,5 +8,6 @@
   "homepage": "https://github.com/ryo-morimoto/mermaid-skill",
   "repository": "https://github.com/ryo-morimoto/mermaid-skill",
   "license": "MIT",
-  "keywords": ["mermaid", "diagram", "flowchart", "sequence", "validation", "syntax-checking"]
+  "keywords": ["mermaid", "diagram", "flowchart", "sequence", "validation", "syntax-checking"],
+  "commands": "./commands"
 }

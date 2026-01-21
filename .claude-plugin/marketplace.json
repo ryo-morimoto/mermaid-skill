@@ -13,7 +13,7 @@
       "name": "mermaid-validator",
       "source": "./plugins/mermaid-validator",
       "description": "Create and validate Mermaid diagrams using the official mermaid-cli (mmdc) tool",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "ryo-morimoto"
       },
