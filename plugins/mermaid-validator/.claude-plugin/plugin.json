@@ -5,5 +5,8 @@
   "author": {
     "name": "ryo-morimoto"
   },
-  "keywords": ["mermaid", "diagram", "flowchart", "sequence", "validation"]
+  "homepage": "https://github.com/ryo-morimoto/mermaid-skill",
+  "repository": "https://github.com/ryo-morimoto/mermaid-skill",
+  "license": "MIT",
+  "keywords": ["mermaid", "diagram", "flowchart", "sequence", "validation", "syntax-checking"]
 }

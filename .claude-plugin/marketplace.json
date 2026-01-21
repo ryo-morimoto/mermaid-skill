@@ -17,9 +17,12 @@
       "author": {
         "name": "ryo-morimoto"
       },
+      "homepage": "https://github.com/ryo-morimoto/mermaid-skill",
       "repository": "https://github.com/ryo-morimoto/mermaid-skill",
       "license": "MIT",
-      "keywords": ["mermaid", "diagram", "flowchart", "sequence", "validation"]
+      "keywords": ["mermaid", "diagram", "flowchart", "sequence", "validation"],
+      "category": "development",
+      "tags": ["diagram", "syntax-checking", "visualization", "documentation"]
     }
   ]
 }
