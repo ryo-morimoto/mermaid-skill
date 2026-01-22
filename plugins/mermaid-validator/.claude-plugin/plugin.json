@@ -5,8 +5,8 @@
   "author": {
     "name": "ryo-morimoto"
   },
-  "homepage": "https://github.com/ryo-morimoto/mermaid-skill",
-  "repository": "https://github.com/ryo-morimoto/mermaid-skill",
+  "homepage": "https://github.com/ryo-morimoto/mermaid-claude-plugins",
+  "repository": "https://github.com/ryo-morimoto/mermaid-claude-plugins",
   "license": "MIT",
   "keywords": ["mermaid", "diagram", "flowchart", "sequence", "validation", "syntax-checking"],
   "commands": "./commands"

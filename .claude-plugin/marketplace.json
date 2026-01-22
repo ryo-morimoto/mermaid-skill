@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "ryo-morimoto-mermaid-skill",
+  "name": "ryo-morimoto-mermaid-claude-plugins",
   "owner": {
     "name": "ryo-morimoto"
   },
@@ -17,8 +17,8 @@
       "author": {
         "name": "ryo-morimoto"
       },
-      "homepage": "https://github.com/ryo-morimoto/mermaid-skill",
-      "repository": "https://github.com/ryo-morimoto/mermaid-skill",
+      "homepage": "https://github.com/ryo-morimoto/mermaid-claude-plugins",
+      "repository": "https://github.com/ryo-morimoto/mermaid-claude-plugins",
       "license": "MIT",
       "keywords": ["mermaid", "diagram", "flowchart", "sequence", "validation"],
       "category": "development",

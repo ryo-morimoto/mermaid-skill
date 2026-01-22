@@ -12,7 +12,7 @@ A Claude Code plugin for validating Mermaid diagram syntax using mermaid-ast (pu
 ## Plugin Structure
 
 ```
-mermaid-skill/
+mermaid-claude-plugins/
 ├── package.json                    # Build & test scripts
 ├── src/
 │   ├── validate.ts                 # Validator source
@@ -40,8 +40,8 @@ Node.js is required to run the validation script.
 Add this marketplace and install the plugin:
 
 ```bash
-/plugin marketplace add ryo-morimoto/mermaid-skill
-/plugin install mermaid-validator@ryo-morimoto-mermaid-skill
+/plugin marketplace add ryo-morimoto/mermaid-claude-plugins
+/plugin install mermaid-validator@ryo-morimoto-mermaid-claude-plugins
 ```
 
 ## Usage
